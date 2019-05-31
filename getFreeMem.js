@@ -7,7 +7,7 @@ const exec = require("child_process").exec
 const newStyle = lines => {
 	var regex = /Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)/
 	var result = regex.exec(lines[1])
-	return result[3];  // return free rather than available
+	return result[6];
 }
 
 // trusty
@@ -17,7 +17,7 @@ const newStyle = lines => {
 // Swap:      5850620       3348    5847272
 const oldStyle = lines => {
 	var regex = /buffers\/cache:\s+(\d+)\s+(\d+)/
-	var result = regex.exec(lines[1])
+	var result = regex.exec(lines[2])
 	return result[2];
 }
 
